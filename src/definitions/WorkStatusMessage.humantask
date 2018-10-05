@@ -1,0 +1,31 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="WorkStatusMessage" description="WorkStatusMessage" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_DAlg_WorkStatus" name="WorkStatus"/>
+        <output id="_wz4c_Message" name="Message"/>
+        <output id="_K7p3_WorkStatus" name="WorkStatus"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": [
+			"Message"
+		],
+		"properties": {
+			"Message": {
+				"title": "Message",
+				"type": "object",
+				"properties": {
+					"MessageContent": {
+						"type": "string",
+						"title": "MessageContent"
+						
+					}
+
+				}
+			}
+		}
+	}
+
+}</task-model>
+    </cafienne:implementation>
+</humantask>

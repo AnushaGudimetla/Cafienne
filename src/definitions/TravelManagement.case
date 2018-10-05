@@ -1,0 +1,73 @@
+<case id="TravelManagement.case" name="TravelManagement" description="TravelManagement" guid="_3rEdr">
+    <caseFileModel>
+        <caseFileItem id="_3rEdr_1" name="UserType" multiplicity="ExactlyOne" definitionRef="usertype.cfid"/>
+        <caseFileItem id="_3rEdr_10" name="GuideRequest" multiplicity="ExactlyOne" definitionRef="guiderequest.cfid"/>
+    </caseFileModel>
+    <casePlanModel id="cm__3rEdr_0" name="TravelManagement" autoComplete="true">
+        <planItem id="pi__3rEdr_0" name="Tourist" definitionRef="_3rEdr_0"/>
+        <humanTask id="ht__3rEdr_0" name="Login" isBlocking="true">
+            <inputs id="_3rEdr_5" name="UserType" bindingRef="_3rEdr_1"/>
+            <outputs id="_3rEdr_7" name="UserType" bindingRef="_3rEdr_1"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="Login.humantask">
+                    <parameterMapping id="_3rEdr_6" sourceRef="_3rEdr_5" targetRef="_I3en_UserType"/>
+                    <parameterMapping id="_3rEdr_8" sourceRef="_qHuz_UserType" targetRef="_3rEdr_7"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__3rEdr_1" name="FillForm" isBlocking="true">
+            <inputs id="_3rEdr_12" name="GuideRequest"/>
+            <outputs id="_3rEdr_14" name="GuideRequest"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="FillForm.humantask">
+                    <parameterMapping id="_3rEdr_13" sourceRef="_3rEdr_12" targetRef="_l3gj_GuideRequest"/>
+                    <parameterMapping id="_3rEdr_20" sourceRef="_FRd0_GuideRequest" targetRef="_3rEdr_14"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <stage id="_3rEdr_0" name="Tourist" autoComplete="true">
+            <planItem id="pi_ht__3rEdr_0" name="Login" definitionRef="ht__3rEdr_0"/>
+            <planItem id="pi_ht__3rEdr_1" name="FillForm" definitionRef="ht__3rEdr_1" entryCriteriaRefs="crit__3rEdr_0"/>
+            <sentry id="crit__3rEdr_0" name="Sentry_0">
+                <planItemOnPart id="_3rEdr_15" name="PlanItemOnPart_0" sourceRef="pi_ht__3rEdr_0">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+        </stage>
+    </casePlanModel>
+    <input id="_3rEdr_4" name="UserType" bindingRef="_3rEdr_1"/>
+    <input id="_3rEdr_11" name="GuideRequest" bindingRef="_3rEdr_10"/>
+    <extensionElements mustUnderstand="false">
+        <cafienne:start-case-model xmlns:cafienne="org.cafienne">{
+	"schema": {
+		"title": "Travel",
+		"type": "object",
+		"required": [
+			"UserType"
+		],
+		"properties": {
+			"UserType": {
+				"title": "UserType",
+				"type": "object",
+				"properties": {
+					"Type": {
+						"type": "string",
+						"title": "Type",
+						"enum": [
+							"Exisiting_User",
+							"New_User"
+						],
+						"enumNames": [
+							"Existing User",
+							"New User"
+						]
+					}
+
+				}
+			}
+		}
+	}
+
+}</cafienne:start-case-model>
+    </extensionElements>
+</case>

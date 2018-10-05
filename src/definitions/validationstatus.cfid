@@ -1,0 +1,3 @@
+<caseFileItemDefinition name="validationstatus" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="Status" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>

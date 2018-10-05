@@ -1,0 +1,37 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="Login" description="Login" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_I3en_UserType" name="UserType"/>
+        <output id="_qHuz_UserType" name="UserType"/>
+        <task-model>{
+	"schema": {
+		"title": "Travel",
+		"type": "object",
+		"required": [
+			"UserType"
+		],
+		"properties": {
+			"UserType": {
+				"title": "UserType",
+				"type": "object",
+				"properties": {
+					"Type": {
+						"type": "string",
+						"title": "Type",
+						"enum": [
+							"Exisiting_User",
+							"New_User"
+						],
+						"enumNames": [
+							"Existing User",
+							"New User"
+						]
+					}
+
+				}
+			}
+		}
+	}
+
+}</task-model>
+    </cafienne:implementation>
+</humantask>

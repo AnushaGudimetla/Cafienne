@@ -1,0 +1,5 @@
+<process name="" description="">
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.http.HTTPCallDefinition" async="true"/>
+    </extensionElements>
+</process>

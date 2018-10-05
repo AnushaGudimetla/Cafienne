@@ -1,0 +1,16 @@
+<process name="Validator" description="Validator">
+    <input id="_1lnm_ComplaintDetails" name="ComplaintDetails"/>
+    <output id="_lpfi_ComplaintDetails" name="ComplaintDetails"/>
+    <output id="_zj98_Validator" name="Validator"/>
+    <input id="_UJzA_Validator" name="Validator"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.http.HTTPCallDefinition" async="true">
+            <url>http://host.docker.internal:3333/validate_complaint</url>
+            <method>GET</method>
+            <http-headers>
+                <http-header name="Content-Type">application/json</http-header>
+            </http-headers>
+            <parameterMapping sourceRef="responsePayload" targetRef="Validator"/>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

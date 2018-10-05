@@ -1,0 +1,45 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="testing" description="testing" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_UAC5_ComplaintDetails" name="ComplaintDetails"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		
+		"properties": {
+			"ComplaintDetails": {
+				"title": "ComplaintDetails",
+				"type": "object",
+				"required": ["CustomerID", "ComplaintSummary", "Category"],
+				"properties": {
+
+					"CustomerID": {
+						"type": "integer",
+						"title": "Customer ID"
+					},
+					"ComplaintSummary": {
+						"type": "string",
+						"title": "Summary of Complaint"
+					},
+					"Category": {
+						"type": "string",
+						"title": "Category of complaint",
+						"enum": [
+							"Credit_Card",
+							"Debit_Card",
+							"Internet_Banking"
+						],
+						"enumNames": [
+							"Credit Card",
+							"Debit Card",
+							"Internet Banking"
+						]
+					}
+				}
+			}
+		}
+
+	}
+}</task-model>
+    </cafienne:implementation>
+</humantask>

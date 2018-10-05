@@ -1,0 +1,103 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="GuideRequest" description="GuideRequest" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_ktM0_TourDetails" name="TourDetails"/>
+        <output id="_0hMO_GuideResponse" name="GuideResponse"/>
+        <output id="_46eU_TourDetails" name="TourDetails"/>
+        <task-model>{
+	"schema": {
+		"title": "Guide",
+		"type": "object",
+		"required": [
+			"GuideRequest"
+		],
+		"properties": {
+			"GuideRequest": {
+				"title": "GuideRequest",
+				"type": "object",
+				"properties": {
+					"Name": {
+						"type": "string",
+						"title": "Name"
+					},
+					"Contact": {
+						"type": "integer",
+						"title": "Contact"
+					},
+					"Country": {
+						"type": "string",
+						"title": "Country",
+						"enumNames": [
+							"Albania",
+							"Belgium",
+							"Bulgaria",
+							"Canada",
+							"Croatia",
+							"Czech Rep",
+							"Denmark",
+							"Estonia",
+							"France",
+							"Germany",
+							"Greece",
+							"Hungary",
+							"Iceland",
+							"Italy",
+							"Latvia",
+							"Lithuania",
+							"Luxembourg",
+							"Netherlands",
+							"Norway",
+							"Poland",
+							"Portugal",
+							"Romania",
+							"Slovakia",
+							"Slovenia",
+							"Spain",
+							"Turkey",
+							"United Kingdom",
+							"USA"
+						],
+						"enum": [
+							"AL",
+							"BE",
+							"BU",
+							"CA",
+							"HR",
+							"CZ",
+							"DA",
+							"EN",
+							"FR",
+							"GE",
+							"GR",
+							"HU",
+							"IC",
+							"IT",
+							"LG",
+							"LH",
+							"LU",
+							"NL",
+							"NO",
+							"PL",
+							"PO",
+							"RO",
+							"LO",
+							"SI",
+							"ES",
+							"TU",
+							"UK",
+							"US"
+						]
+					},
+					"Date": {
+						"title": "Date",
+						"type": "string",
+						"format": "date"
+					}
+				}
+			}
+		}
+	}
+
+
+}</task-model>
+    </cafienne:implementation>
+</humantask>

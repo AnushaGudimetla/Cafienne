@@ -1,0 +1,7 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="form_filling" description="form_filling" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_3dk7_Form" name="Form"/>
+        <output id="_0U1c_Form_Response" name="Form_Response"/>
+        <task-model></task-model>
+    </cafienne:implementation>
+</humantask>

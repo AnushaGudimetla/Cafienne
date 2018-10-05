@@ -1,0 +1,21 @@
+<process name="NotifyAssign" description="NotifyAssign">
+    <input id="_UFhd_Assignee" name="Assignee"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.smtp.SMTPCallDefinition">
+            <smtp-server>mailcatcher</smtp-server>
+            <smtp-port>1025</smtp-port>
+            <subject>Assign Status </subject>
+            <mail-body type="text/html">
+                <![CDATA[
+     <html><body><h3>Your Issue has been assigned to <label style="color:blue">${Assignee}</label><p>You will be notified further, once your issue has been resolved</p></h3></body></html>
+          
+                 ]]>
+            </mail-body>
+            <from>support@service.com</from>
+            <reply-to>support@service.com</reply-to>
+            <to>
+                <address name="customer">customer@service.com</address>
+            </to>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

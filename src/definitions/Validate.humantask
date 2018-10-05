@@ -1,0 +1,66 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="Validate" description="Validate" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_YbgD_ComplaintDetails" name="ComplaintDetails"/>
+        <output id="_K4gi_ValidationStatus" name="ValidationStatus"/>
+        <output id="_4qEX_ComplaintDetails" name="ComplaintDetails"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": ["ValidationStatus"],
+		"properties": {
+			"ComplaintDetails": {
+				"title": "ComplaintDetails",
+				"type": "object",
+				"required": ["CustomerID", "ComplaintSummary", "Category"],
+				"properties": {
+
+					"CustomerID": {
+						"type": "integer",
+						"title": "Customer ID"
+					},
+					"ComplaintSummary": {
+						"type": "string",
+						"title": "Summary of Complaint"
+					},
+					"Category": {
+						"type": "string",
+						"title": "Category of complaint",
+						"enum": [
+							"Credit_Card",
+							"Debit_Card",
+							"Internet_Banking"
+						],
+						"enumNames": [
+							"Credit Card",
+							"Debit Card",
+							"Internet Banking"
+						]
+					}
+				}
+			},
+			"ValidationStatus": {
+				"title": "ValidationStatus",
+				"type": "object",
+				"properties": {
+					"Status": {
+						"type": "string",
+						"title": "Enter the Status",
+						"enum": [
+							"Valid",
+							"Invalid"
+						],
+						"enumNames": [
+							"Valid",
+							"Invalid"
+						]
+
+					}
+				}
+			}
+		}
+
+	}
+}</task-model>
+    </cafienne:implementation>
+</humantask>

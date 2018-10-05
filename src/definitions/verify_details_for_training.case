@@ -1,0 +1,31 @@
+<case id="IncidentManagement.case" name="IncidentManagement" description="IncidentManagement" guid="_tiKJQ">
+    <caseFileModel>
+        <caseFileItem id="_tiKJQ_3" name="IncidentDetails" multiplicity="ExactlyOne" definitionRef="incidentdetails.cfid"/>
+        <caseFileItem id="_tiKJQ_11" name="Incident_Response" multiplicity="ExactlyOne" definitionRef="incident_response.cfid"/>
+    </caseFileModel>
+    <input id="_tiKJQ_4" name="Incident" bindingRef="_tiKJQ_3"/>
+    <extensionElements mustUnderstand="false">
+        <cafienne:start-case-model xmlns:cafienne="org.cafienne">{
+	"schema": {
+		"title": "Incident",
+		"type": "object",
+		"properties": {
+		"Incident": {
+			"title": "Incident",
+			"type": "object",
+			"properties": {
+				"Title": {
+					"type": "string",
+					"title": "Summary of Incident"
+				},
+				"Description": {
+					"type": "string",
+					"title": "Full Detail of Incident"
+				}
+			}
+		}
+	}
+
+}}</cafienne:start-case-model>
+    </extensionElements>
+</case>

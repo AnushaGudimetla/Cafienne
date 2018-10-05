@@ -1,0 +1,14 @@
+<process name="AssignIncharge" description="AssignIncharge">
+    <input id="_48oF_BankIncident" name="Category"/>
+    <output id="_nlkZ_Incharge" name="Incharge"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.http.HTTPCallDefinition" async="true">
+            <url>http://host.docker.internal:3333/usermappings/${Category}</url>
+            <method>GET</method>
+            <http-headers>
+                <http-header name="Content-Type">application/json</http-header>
+            </http-headers>
+            <parameterMapping sourceRef="responsePayload" targetRef="Incharge"/>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

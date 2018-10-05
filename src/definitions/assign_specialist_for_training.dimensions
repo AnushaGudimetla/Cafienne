@@ -1,0 +1,52 @@
+<CMMNDI>
+    <CMMNDiagram>
+        <CMMNShape cmmnElementRef="cm__tiKJQ_0" name="IncidentManagement">
+            <Bounds x="10" y="30" width="773" height="816"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi__tiKJQ_0" name="Verify And Assign">
+            <Bounds x="60" y="110" width="420" height="210"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__tiKJQ_0" name="Verify Details">
+            <Bounds x="120" y="150" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi__tiKJQ_5" name="In progress">
+            <Bounds x="80" y="450" width="420" height="140"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__tiKJQ_1" name="Work on Incident">
+            <Bounds x="210" y="500" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__tiKJQ_0" name="Sentry_0">
+            <Bounds x="274" y="440" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ms__tiKJQ_0" name="Invalid Incident">
+            <Bounds x="610" y="160" width="100" height="40"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__tiKJQ_1" name="Sentry_1">
+            <Bounds x="604" y="170" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ms__tiKJQ_1" name="Complete">
+            <Bounds x="610" y="350" width="100" height="40"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__tiKJQ_2" name="Sentry_2">
+            <Bounds x="644" y="340" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__tiKJQ_3" name="Sentry_3">
+            <Bounds x="644" y="380" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_pt__tiKJQ_0" name="Assign Specialist">
+            <Bounds x="280" y="220" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__tiKJQ_4" name="Sentry_4">
+            <Bounds x="274" y="240" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNEdge sourceCMMNElementRef="pi__tiKJQ_0" targetCMMNElementRef="crit__tiKJQ_0">
+            <waypoint x="280" y="400"/>
+        </CMMNEdge>
+        <CMMNEdge sourceCMMNElementRef="crit__tiKJQ_1" targetCMMNElementRef="pi_ht__tiKJQ_0"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ms__tiKJQ_0" targetCMMNElementRef="crit__tiKJQ_2"/>
+        <CMMNEdge sourceCMMNElementRef="pi__tiKJQ_5" targetCMMNElementRef="crit__tiKJQ_3"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__tiKJQ_0" targetCMMNElementRef="crit__tiKJQ_4">
+            <waypoint x="150" y="250"/>
+        </CMMNEdge>
+    </CMMNDiagram>
+</CMMNDI>

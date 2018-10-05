@@ -1,0 +1,57 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="work_on_incident_for_training" description="work_on_incident_for_training" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_63sq_Incident" name="Incident"/>
+        <output id="_Eqak_Incident_Response" name="Incident_Response"/>
+        <input id="_rHVE_Incident_Response" name="Incident_Response"/>
+        <input id="_2v00_Assignee" name="Assignee"/>
+        <task-model>{
+  "schema":{
+    "title": "Incident",
+    "type": "object",
+    "properties": {
+      "Incident": {
+        "title": "Incident Details",
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string",
+            "title": "Summary of incident"
+          },
+          "Description":{
+            "type": "string",
+            "title": "Full details of the incident"
+          },
+          "Type": {
+            "title": "Incident Type",
+            "type": "string",
+            "enumNames": [
+              "Quaterly Statement",
+              "IT Returns",
+              "Facility Request" ],
+            "enum": [
+              "Quaterly_Statement",
+              "IT_Returns",
+              "Facility_Request"  ]
+          }
+        }
+      },
+      "Incident_Response":{
+        "title": "Incident Response",
+        "type": "object",
+        "properties":{
+          "Status": {
+            "title": "Enter the status",
+            "type": "string",
+            "enum": [
+              "valid",
+              "Needs_further_analysis",
+              "Invalid" ,
+              "Fixed"]
+          }
+        }
+      }
+    }
+  }
+}</task-model>
+    </cafienne:implementation>
+</humantask>

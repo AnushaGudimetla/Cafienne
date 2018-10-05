@@ -1,0 +1,16 @@
+<process name="Incharge" description="ncharge">
+    <input id="_BXwK_Category" name="Category"/>
+    <output id="_QSTt_Incharge" name="Incharge"/>
+    <input id="_5pA9_ComplaintDetails" name="ComplaintDetails"/>
+    <output id="_YItm_ComplaintDetails" name="ComplaintDetails"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.http.HTTPCallDefinition" async="true">
+            <url>http://host.docker.internal:3333/usermappings/${Category}</url>
+            <method>GET</method>
+            <http-headers>
+                <http-header name="Content-Type">application/json</http-header>
+            </http-headers>
+            <parameterMapping sourceRef="responsePayload" targetRef="Incharge"/>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

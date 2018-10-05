@@ -1,0 +1,24 @@
+<process name="NotifyStatus" description="NotifyStatus">
+    <input id="_Ttv4_Assign_Status" name="ValidationStatus"/>
+    <input id="_0erg_MessageContent" name="Message"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.smtp.SMTPCallDefinition">
+            <smtp-server>mailcatcher</smtp-server>
+            <smtp-port>1025</smtp-port>
+            <subject>Validation Status ${ValidationStatus}</subject>
+            <mail-body type="text/html">
+                <![CDATA[
+     <html><body><h3>Validation Status is <label style="color:blue">${ValidationStatus}</label>.
+			Validator says: <label style="color:red">${Message}</label>.
+<p> Thankyou for contacting Customer Support.</p></h3></body></html>
+          
+                 ]]>
+            </mail-body>
+            <from>support@service.com</from>
+            <reply-to>support@service.com</reply-to>
+            <to>
+                <address name="customer">customer@service.com</address>
+            </to>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

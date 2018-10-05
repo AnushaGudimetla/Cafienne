@@ -1,0 +1,16 @@
+<CMMNDI>
+    <CMMNDiagram>
+        <CMMNShape cmmnElementRef="cm__r145c_0" name="BankManagement">
+            <Bounds x="10" y="10" width="773" height="816"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi__r145c_0" name="Registration">
+            <Bounds x="60" y="80" width="600" height="290"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_0" name="CustomerType">
+            <Bounds x="100" y="210" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_1" name="RaiseAComplaint">
+            <Bounds x="280" y="130" width="130" height="60"/>
+        </CMMNShape>
+    </CMMNDiagram>
+</CMMNDI>

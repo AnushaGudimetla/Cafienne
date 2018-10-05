@@ -1,0 +1,24 @@
+<process name="NotifySubmission" description="NotifySubmission">
+    <output id="_QG7o_ComplaintDetails" name="ComplaintDetails"/>
+    <input id="_1AHX_ComplaintDetails" name="ComplaintDetails"/>
+    <input id="_fzyQ_ComplaintSummary" name="ComplaintSummary"/>
+    <extensionElements>
+        <cafienne:implementation xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.instance.process.smtp.SMTPCallDefinition">
+            <smtp-server>mailcatcher</smtp-server>
+            <smtp-port>1025</smtp-port>
+            <subject>Complaint Submission Status </subject>
+            <mail-body type="text/html">
+                <![CDATA[
+     <html><body><h3>Following Complaint has been Submitted by you 
+	<p><label style="color:blue">${ComplaintSummary}</label></p><p>You will be notified once it is validated by our executive. </p></h3></body></html>
+          
+                 ]]>
+            </mail-body>
+            <from>support@service.com</from>
+            <reply-to>support@service.com</reply-to>
+            <to>
+                <address name="customer">customer@service.com</address>
+            </to>
+        </cafienne:implementation>
+    </extensionElements>
+</process>

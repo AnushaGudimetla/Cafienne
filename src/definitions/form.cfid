@@ -1,0 +1,6 @@
+<caseFileItemDefinition name="form" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="Full Name" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="Age" type="http://www.omg.org/spec/CMMN/PropertyType/integer"/>
+    <property name="Place" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="Purpose/Reason" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>

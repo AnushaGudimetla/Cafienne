@@ -1,0 +1,39 @@
+<case id="example.case" name="example" guid="_QE3qW">
+    <caseFileModel>
+        <caseFileItem id="_QE3qW_10" name="ticket" multiplicity="ExactlyOne" definitionRef="greeting.cfid"/>
+        <caseFileItem id="_QE3qW_11" name="email" multiplicity="ExactlyOne" definitionRef="response.cfid"/>
+    </caseFileModel>
+    <casePlanModel id="cm__QE3qW_0" name="example" autoComplete="true">
+        <planItem id="pi_ht__QE3qW_0" name="raise a ticket" definitionRef="ht__QE3qW_0"/>
+        <planItem id="pi_pt__QE3qW_0" name="Assign ticket and Send mail" definitionRef="pt__QE3qW_0" entryCriteriaRefs="crit__QE3qW_0"/>
+        <planItem id="pi_ht__QE3qW_1" name="view ticket" definitionRef="ht__QE3qW_1" entryCriteriaRefs="crit__QE3qW_1"/>
+        <planItem id="pi_ms__QE3qW_0" name="Close ticket" definitionRef="ms__QE3qW_0" entryCriteriaRefs="crit__QE3qW_2"/>
+        <sentry id="crit__QE3qW_0" name="Sentry_0">
+            <planItemOnPart id="_QE3qW_5" name="PlanItemOnPart_0" sourceRef="pi_ht__QE3qW_0">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__QE3qW_1" name="Sentry_1">
+            <planItemOnPart id="_QE3qW_6" name="PlanItemOnPart_1" sourceRef="pi_pt__QE3qW_0">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__QE3qW_2" name="Sentry_2">
+            <planItemOnPart id="_QE3qW_7" name="PlanItemOnPart_2" sourceRef="pi_ht__QE3qW_1">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <humanTask id="ht__QE3qW_0" name="raise a ticket" isBlocking="true" performerRef="_QE3qW_8">
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne">
+                    <parameterMapping id="_QE3qW_1"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__QE3qW_1" name="view ticket" isBlocking="true" performerRef="_QE3qW_9"/>
+        <processTask id="pt__QE3qW_0" name="Assign ticket and Send mail" isBlocking="true"/>
+        <milestone id="ms__QE3qW_0" name="Close ticket"/>
+    </casePlanModel>
+    <caseRoles id="_QE3qW_8" name="user"/>
+    <caseRoles id="_QE3qW_9" name="service engineer"/>
+</case>

@@ -1,0 +1,44 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="SignUp" description="SignUp" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_lIyM_SignUp" name="SignUp"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+         "required": ["SignUp"],
+		"properties": {
+		"SignUp": {
+			"title": "SignUp",
+			"type": "object",
+          "required":["Name","ContactNo","Email","Address","CustomerID"],
+			"properties": {
+              
+              	           
+              "Name": {
+					"type": "string",
+					"title": "Name"
+				},
+               "ContactNo": {
+					"type": "integer",
+					"title": "ContactNo"
+				},
+              "Email": {
+					"type": "string",
+					"title": "Email"
+				},
+              "Address": {
+					"type": "string",
+					"title": "Address"
+				},
+              "CustomerID": {
+					"type": "integer",
+					"title": "Customer ID"
+				}
+				
+			}
+		}
+	}
+
+}}</task-model>
+    </cafienne:implementation>
+</humantask>

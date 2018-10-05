@@ -1,0 +1,98 @@
+<case id="BankManagement.case" name="BankManagement" description="BankManagement" guid="_r145c">
+    <caseFileModel>
+        <caseFileItem id="_r145c_4" name="CustomerType" multiplicity="ExactlyOne" definitionRef="customertype.cfid"/>
+        <caseFileItem id="_r145c_13" name="ComplaintDetails" multiplicity="ExactlyOne" definitionRef="complaintdetails.cfid"/>
+    </caseFileModel>
+    <casePlanModel id="cm__r145c_0" name="BankManagement" autoComplete="true">
+        <planItem id="pi__r145c_0" name="Registration" definitionRef="_r145c_0"/>
+        <humanTask id="ht__r145c_0" name="CustomerType" isBlocking="true">
+            <inputs id="_r145c_5" name="CustomerType" bindingRef="_r145c_4"/>
+            <outputs id="_r145c_7" name="CustomerType" bindingRef="_r145c_4">
+                <extensionElements mustUnderstand="false">
+                    <cafienne:implementation xmlns:cafienne="org.cafienne" required="true"/>
+                </extensionElements>
+            </outputs>
+            <outputs id="_r145c_22" name="ComplaintDetails" bindingRef="_r145c_13">
+                <extensionElements mustUnderstand="false">
+                    <cafienne:implementation xmlns:cafienne="org.cafienne" required="true"/>
+                </extensionElements>
+            </outputs>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="CustomerType.humantask">
+                    <parameterMapping id="_r145c_6" sourceRef="_r145c_5" targetRef="_nLCa_CustomerType"/>
+                    <parameterMapping id="_r145c_8" sourceRef="_1C0K_CustomerType" targetRef="_r145c_7">
+                        <transformation id="_r145c_15" name="Expression_2" language="spel">
+                            <body>
+                                <![CDATA[CustomerType]]>
+                            </body>
+                        </transformation>
+                    </parameterMapping>
+                    <parameterMapping id="_r145c_21" sourceRef="_ERZs_ComplaintDetails" targetRef="_r145c_22"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__r145c_1" name="RaiseAComplaint" isBlocking="true">
+            <inputs id="_r145c_16" name="ComplaintDetails" bindingRef="_r145c_13"/>
+            <inputs id="_r145c_20" name="CustomerType" bindingRef="_r145c_4"/>
+            <outputs id="_r145c_23" name="ComplaintDetails" bindingRef="_r145c_13"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="RaiseAComplaint.humantask">
+                    <parameterMapping id="_r145c_17" sourceRef="_r145c_16" targetRef="_kaHF_ComplaintDetails"/>
+                    <parameterMapping id="_r145c_24" sourceRef="_Pl5f_ComplaintDetails" targetRef="_r145c_23"/>
+                    <parameterMapping id="_r145c_19" sourceRef="_r145c_20" targetRef="_7gYN_CustomerType"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <stage id="_r145c_0" name="Registration" autoComplete="true">
+            <planItem id="pi_ht__r145c_0" name="CustomerType" definitionRef="ht__r145c_0"/>
+            <planItem id="pi_ht__r145c_1" name="RaiseAComplaint" definitionRef="ht__r145c_1" entryCriteriaRefs="crit__r145c_0"/>
+            <sentry id="crit__r145c_0" name="Sentry_0">
+                <ifPart id="_r145c_11" name="IfPart_0" contextRef="_r145c_4">
+                    <condition id="_r145c_12" name="Expression_0" language="spel">
+                        <body>
+                            <![CDATA[CustomerType.Type=="Exisiting User"]]>
+                        </body>
+                    </condition>
+                </ifPart>
+                <planItemOnPart id="_r145c_10" name="PlanItemOnPart_0" sourceRef="pi_ht__r145c_0">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+        </stage>
+    </casePlanModel>
+    <input id="_r145c_3" name="CustomerType" bindingRef="_r145c_4"/>
+    <input id="_r145c_18" name="ComplaintDetails" bindingRef="_r145c_13"/>
+    <extensionElements mustUnderstand="false">
+        <cafienne:start-case-model xmlns:cafienne="org.cafienne">{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": [
+			"CustomerType"
+		],
+		"properties": {
+			"CustomerType": {
+				"title": "CustomerType",
+				"type": "object",
+				"properties": {
+					"Type": {
+						"type": "string",
+						"title": "Type",
+						"enum": [
+							"Exisiting_User",
+							"New_User"
+						],
+						"enumNames": [
+							"Existing User",
+							"New User"
+						]
+					}
+
+				}
+			}
+		}
+	}
+
+}</cafienne:start-case-model>
+    </extensionElements>
+</case>

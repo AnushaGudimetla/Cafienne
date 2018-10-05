@@ -1,0 +1,70 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="WorkStatus" description="WorkStatus" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_WUqP_ComplaintDetails" name="ComplaintDetails"/>
+        <output id="_24uj_WorkStatus" name="WorkStatus"/>
+        <input id="_6Jll_Assignee" name="Assignee"/>
+        <output id="_Mp1I_ComplaintDetails" name="ComplaintDetails"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": ["WorkStatus"],
+		"properties": {
+			"ComplaintDetails": {
+				"title": "ComplaintDetails",
+				"type": "object",
+				"required": ["CustomerID", "ComplaintSummary", "Category"],
+				"properties": {
+
+					"CustomerID": {
+						"type": "integer",
+						"title": "Customer ID"
+					},
+					"ComplaintSummary": {
+						"type": "string",
+						"title": "Summary of Complaint"
+					},
+					"Category": {
+						"type": "string",
+						"title": "Category of complaint",
+						"enum": [
+							"Credit_Card",
+							"Debit_Card",
+							"Internet_Banking"
+						],
+						"enumNames": [
+							"Credit Card",
+							"Debit Card",
+							"Internet Banking"
+						]
+					}
+				}
+			},
+			"WorkStatus": {
+				"title": "WorkStatus",
+				"type": "object",
+              	"required": ["IssueStatus"],
+				"properties": {
+					"IssueStatus": {
+						"type": "string",
+						"title": "Enter the Status",
+						"enum": [
+							"Issue_Fixed",
+							"Unable_To_Fix",
+                          	"Need_Further_Information"
+						],
+						"enumNames": [
+							"Issue Fixed",
+							"Unable To Fix",
+                          	"Need Further Information"
+						]
+
+					}
+				}
+			}
+		}
+
+	}
+}</task-model>
+    </cafienne:implementation>
+</humantask>

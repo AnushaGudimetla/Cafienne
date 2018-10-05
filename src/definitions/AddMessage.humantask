@@ -1,0 +1,31 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="AddMessage" description="AddMessage" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <output id="_qjaI_MessageContent" name="Message"/>
+        <output id="_QuGM_ValidationStatus" name="ValidationStatus"/>
+        <input id="_hWcn_ValidationStatus" name="ValidationStatus"/>
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": [
+			"Message"
+		],
+		"properties": {
+			"Message": {
+				"title": "Message",
+				"type": "object",
+				"properties": {
+					"MessageContent": {
+						"type": "string",
+						"title": "MessageContent"
+						
+					}
+
+				}
+			}
+		}
+	}
+
+}</task-model>
+    </cafienne:implementation>
+</humantask>

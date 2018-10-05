@@ -1,0 +1,58 @@
+<CMMNDI>
+    <CMMNDiagram>
+        <CMMNShape cmmnElementRef="cm__r145c_0" name="BankManagement">
+            <Bounds x="-10" y="30" width="1140" height="820"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi__r145c_0" name="Registration">
+            <Bounds x="40" y="110" width="470" height="290"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_0" name="CustomerType">
+            <Bounds x="80" y="240" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_1" name="RaiseAComplaint">
+            <Bounds x="260" y="170" width="130" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_0" name="Sentry_0">
+            <Bounds x="254" y="190" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_2" name="SignUp">
+            <Bounds x="230" y="300" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_1" name="Sentry_1">
+            <Bounds x="224" y="320" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_3" name="Validate">
+            <Bounds x="640" y="150" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ms__r145c_0" name="Invalid">
+            <Bounds x="850" y="190" width="100" height="40"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi__r145c_60" name="Validate and Assign">
+            <Bounds x="580" y="120" width="420" height="260"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_2" name="Sentry_2">
+            <Bounds x="574" y="180" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_4" name="Sentry_4">
+            <Bounds x="844" y="200" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_pt__r145c_0" name="Assign">
+            <Bounds x="670" y="270" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_3" name="Sentry_3">
+            <Bounds x="714" y="260" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="pi_ht__r145c_5" name="test1">
+            <Bounds x="830" y="570" width="100" height="60"/>
+        </CMMNShape>
+        <CMMNShape cmmnElementRef="crit__r145c_6" name="Sentry_6">
+            <Bounds x="824" y="600" width="12" height="20"/>
+        </CMMNShape>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__r145c_0" targetCMMNElementRef="crit__r145c_0"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__r145c_0" targetCMMNElementRef="crit__r145c_1"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__r145c_1" targetCMMNElementRef="crit__r145c_2"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__r145c_3" targetCMMNElementRef="crit__r145c_4"/>
+        <CMMNEdge sourceCMMNElementRef="pi_ht__r145c_3" targetCMMNElementRef="crit__r145c_3"/>
+        <CMMNEdge sourceCMMNElementRef="crit__r145c_2" targetCMMNElementRef="pi__r145c_0"/>
+    </CMMNDiagram>
+</CMMNDI>

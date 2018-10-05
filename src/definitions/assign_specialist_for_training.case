@@ -1,0 +1,127 @@
+<case id="IncidentManagement.case" name="IncidentManagement" description="IncidentManagement" guid="_tiKJQ">
+    <caseFileModel>
+        <caseFileItem id="_tiKJQ_3" name="IncidentDetails" multiplicity="ExactlyOne" definitionRef="incidentdetails.cfid"/>
+        <caseFileItem id="_tiKJQ_11" name="Incident_Response" multiplicity="ExactlyOne" definitionRef="incident_response.cfid"/>
+        <caseFileItem id="_tiKJQ_35" name="Specialist" multiplicity="ExactlyOne" definitionRef="specialist.cfid"/>
+    </caseFileModel>
+    <casePlanModel id="cm__tiKJQ_0" name="IncidentManagement" autoComplete="true">
+        <planItem id="pi__tiKJQ_0" name="Verify And Assign" definitionRef="_tiKJQ_0"/>
+        <planItem id="pi__tiKJQ_5" name="In progress" definitionRef="_tiKJQ_5" entryCriteriaRefs="crit__tiKJQ_0"/>
+        <planItem id="pi_ms__tiKJQ_0" name="Invalid Incident" definitionRef="ms__tiKJQ_0" entryCriteriaRefs="crit__tiKJQ_1"/>
+        <planItem id="pi_ms__tiKJQ_1" name="Complete" definitionRef="ms__tiKJQ_1" entryCriteriaRefs="crit__tiKJQ_2 crit__tiKJQ_3"/>
+        <sentry id="crit__tiKJQ_0" name="Sentry_0">
+            <ifPart id="_tiKJQ_24" name="IfPart_1" contextRef="_tiKJQ_11">
+                <condition id="_tiKJQ_25" name="Expression_1" language="spel">
+                    <body>
+                        <![CDATA[Incident_Response.Status!="Invalid"]]>
+                    </body>
+                </condition>
+            </ifPart>
+            <planItemOnPart id="_tiKJQ_8" name="PlanItemOnPart_0" sourceRef="pi__tiKJQ_0">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__tiKJQ_1" name="Sentry_1">
+            <ifPart id="_tiKJQ_22" name="IfPart_0" contextRef="_tiKJQ_11">
+                <condition id="_tiKJQ_23" name="Expression_0" language="spel">
+                    <body>
+                        <![CDATA[Incident_Response.Status=="Invalid"]]>
+                    </body>
+                </condition>
+            </ifPart>
+            <planItemOnPart id="_tiKJQ_21" name="PlanItemOnPart_1" sourceRef="pi_ht__tiKJQ_0">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__tiKJQ_2" name="Sentry_2">
+            <planItemOnPart id="_tiKJQ_27" name="PlanItemOnPart_2" sourceRef="pi_ms__tiKJQ_0">
+                <standardEvent>occur</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__tiKJQ_3" name="Sentry_3">
+            <planItemOnPart id="_tiKJQ_28" name="PlanItemOnPart_3" sourceRef="pi__tiKJQ_5">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <humanTask id="ht__tiKJQ_0" name="Verify Details" isBlocking="true">
+            <inputs id="_tiKJQ_12" name="Incident" bindingRef="_tiKJQ_3"/>
+            <outputs id="_tiKJQ_14" name="Incident_Response" bindingRef="_tiKJQ_11"/>
+            <outputs id="_tiKJQ_16" name="Incident" bindingRef="_tiKJQ_3"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="verify_details_for_training_1.humantask">
+                    <parameterMapping id="_tiKJQ_13" sourceRef="_tiKJQ_12" targetRef="_2p1f_Incident"/>
+                    <parameterMapping id="_tiKJQ_15" sourceRef="_n9N5_Incident_Response" targetRef="_tiKJQ_14"/>
+                    <parameterMapping id="_tiKJQ_17" sourceRef="_A7ar_Incident" targetRef="_tiKJQ_16"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__tiKJQ_1" name="Work on Incident" isBlocking="true">
+            <inputs id="_tiKJQ_9" name="Incident" bindingRef="_tiKJQ_3"/>
+            <inputs id="_tiKJQ_39" name="Incident_Response" bindingRef="_tiKJQ_11"/>
+            <inputs id="_tiKJQ_40" name="Assignee" bindingRef="_tiKJQ_35"/>
+            <outputs id="_tiKJQ_18" name="Incident_Response" bindingRef="_tiKJQ_11"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="work_on_incident_for_training.humantask">
+                    <parameterMapping id="_tiKJQ_10" sourceRef="_tiKJQ_9" targetRef="_63sq_Incident"/>
+                    <parameterMapping id="_tiKJQ_19" sourceRef="_Eqak_Incident_Response" targetRef="_tiKJQ_18"/>
+                    <parameterMapping id="_tiKJQ_37" sourceRef="_tiKJQ_39" targetRef="_rHVE_Incident_Response"/>
+                    <parameterMapping id="_tiKJQ_38" sourceRef="_tiKJQ_40" targetRef="_2v00_Assignee"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <processTask id="pt__tiKJQ_0" name="Assign Specialist" isBlocking="true" processRef="assign_specialist_for_training.process">
+            <inputs id="_tiKJQ_30" name="incident_type" bindingRef="_tiKJQ_3"/>
+            <outputs id="_tiKJQ_32" name="specialist" bindingRef="_tiKJQ_35"/>
+            <parameterMapping id="_tiKJQ_31" sourceRef="_tiKJQ_30" targetRef="_yyr2_incident_type">
+                <transformation id="_tiKJQ_34" name="Expression_2" language="spel">
+                    <body>
+                        <![CDATA[incident_type.Type]]>
+                    </body>
+                </transformation>
+            </parameterMapping>
+            <parameterMapping id="_tiKJQ_33" sourceRef="_2IeJ_specialist" targetRef="_tiKJQ_32"/>
+        </processTask>
+        <milestone id="ms__tiKJQ_0" name="Invalid Incident"/>
+        <milestone id="ms__tiKJQ_1" name="Complete"/>
+        <stage id="_tiKJQ_0" name="Verify And Assign" autoComplete="true">
+            <planItem id="pi_ht__tiKJQ_0" name="Verify Details" definitionRef="ht__tiKJQ_0"/>
+            <planItem id="pi_pt__tiKJQ_0" name="Assign Specialist" definitionRef="pt__tiKJQ_0" entryCriteriaRefs="crit__tiKJQ_4"/>
+            <sentry id="crit__tiKJQ_4" name="Sentry_4">
+                <planItemOnPart id="_tiKJQ_36" name="PlanItemOnPart_4" sourceRef="pi_ht__tiKJQ_0">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+        </stage>
+        <stage id="_tiKJQ_5" name="In progress" autoComplete="true">
+            <planItem id="pi_ht__tiKJQ_1" name="Work on Incident" definitionRef="ht__tiKJQ_1"/>
+        </stage>
+    </casePlanModel>
+    <input id="_tiKJQ_4" name="Incident" bindingRef="_tiKJQ_3"/>
+    <extensionElements mustUnderstand="false">
+        <cafienne:start-case-model xmlns:cafienne="org.cafienne">{
+	"schema": {
+		"title": "Incident",
+		"type": "object",
+         "required": [
+           "Incident"
+         ],
+		"properties": {
+		"Incident": {
+			"title": "Incident",
+			"type": "object",
+			"properties": {
+				"Title": {
+					"type": "string",
+					"title": "Summary of Incident"
+				},
+				"Description": {
+					"type": "string",
+					"title": "Full Detail of Incident"
+				}
+			}
+		}
+	}
+
+}}</cafienne:start-case-model>
+    </extensionElements>
+</case>

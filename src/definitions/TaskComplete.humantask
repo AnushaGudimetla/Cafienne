@@ -1,0 +1,33 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="TaskComplete" description="TaskComplete" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <task-model>{
+	"schema": {
+		"title": "Bank",
+		"type": "object",
+		"required": [
+			"Complete"
+		],
+		"properties": {
+			"Complete": {
+				"title": "Complete",
+				"type": "object",
+				"properties": {
+					"FinalValidation": {
+						"type": "string",
+						"title": "FinalValidation",
+						"enum": [
+							"Completed"
+						],
+						"enumNames": [
+							"Completed"
+						]
+					}
+
+				}
+			}
+		}
+	}
+
+}</task-model>
+    </cafienne:implementation>
+</humantask>

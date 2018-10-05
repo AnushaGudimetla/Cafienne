@@ -1,0 +1,109 @@
+<case id="MedicalForm.case" name="MedicalForm" description="MedicalForm" guid="_OGdhR">
+    <caseFileModel>
+        <caseFileItem id="_OGdhR_3" name="Form" multiplicity="ExactlyOne" definitionRef="form.cfid"/>
+    </caseFileModel>
+    <casePlanModel id="cm__OGdhR_0" name="MedicalForm" autoComplete="true">
+        <planItem id="pi__OGdhR_0" name="form" definitionRef="_OGdhR_0"/>
+        <humanTask id="ht__OGdhR_0" name="Fill_Form" isBlocking="true">
+            <inputs id="_OGdhR_4" name="Form" bindingRef="_OGdhR_3"/>
+            <outputs id="_OGdhR_6" name="Form_Response" bindingRef="_OGdhR_3"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="form_filling.humantask">
+                    <parameterMapping id="_OGdhR_5" sourceRef="_OGdhR_4" targetRef="_3dk7_Form"/>
+                    <parameterMapping id="_OGdhR_7" sourceRef="_0U1c_Form_Response" targetRef="_OGdhR_6"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <stage id="_OGdhR_0" name="form" autoComplete="true">
+            <planItem id="pi_ht__OGdhR_0" name="Fill_Form" definitionRef="ht__OGdhR_0"/>
+        </stage>
+    </casePlanModel>
+    <extensionElements mustUnderstand="false">
+        <cafienne:start-case-model xmlns:cafienne="org.cafienne">{
+  "schema": {
+      "type": "object",
+      "properties": {"AppointmentRequest": {"$ref": "#/definitions/AppointmentRequest"}},
+      "definitions": {
+          "AppointmentRequest": {
+              "type": "object",
+              "properties": {
+                  "PatientDetails": {"$ref": "#/definitions/PatientDetails"},
+              }
+          },
+          "PatientDetails":{
+            "title": "Form",
+            "type": "object",
+          },
+              
+              "Purpose": {
+                "title": "Purpose",
+                "type": "string"
+              },
+          "Form": {
+              "title": "Form",
+              "type": "object",
+              "required": ["Name", "Age", "Place", "Purpose/Reason"],
+              "properties": {
+                "Name": {
+                  "title": "Name",
+                  "type": "string"
+                },
+                "Age": {
+                  "title": "Age",
+                  "type": "integer"
+                },
+                "Place": {
+                  "title": "Place",
+                  "type": "string",
+                  "enumNames": [
+                    "Hyderabad",
+                    "Vijayawada",
+                    "Vizag",
+                    "Kurnool",
+                  ],
+                "Purpose/Reason": {
+                    "title": "Purpose/Reason",
+                    "type": "string"
+                }
+              }
+          },
+          
+  "uiSchema": {
+    "AppointmentRequest": {
+      "ui:widget": "stepper",
+      "TravelDetails" : {
+        "Destination": {
+          "items":{
+            "ui:order":["Country", "City"]
+          }
+        },
+        "Purpose": {
+          "ui:widget": "textarea",
+          "ui:help": "Short brief on the primary purpose for the travel"
+        },
+      "TravellerDetails" : {
+        "Requestor": {"ui:widget": "user-selector", "multiSelect" : false, "role" : "Requestor"},
+        "PointOfContact": {
+          "ui:widget": "user-selector",
+          "ui:help": "Person other than you who can be contacted for any queries on this travel",
+          "multiSelect" : false
+        },
+        "Traveller":{
+          "ui:help": "Details of person(s) travelling. Click on the '+' to add more",
+          "items":{
+            "PassNo":{
+              "ui:help": "NATO Pass Number"
+            }
+          }
+        }
+      },
+    
+        "Manager": {"ui:widget": "user-selector", "multiSelect" : false, "role" : "Approver"},
+        "Assistant": {"ui:widget": "user-selector", "multiSelect" : false, "role" : "PersonalAssistant"}
+      }
+    }
+  }
+}
+            </cafienne:start-case-model>
+    </extensionElements>
+</case>

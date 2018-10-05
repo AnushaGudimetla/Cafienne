@@ -1,0 +1,56 @@
+<humantask>
+    <cafienne:implementation xmlns:cafienne="org.cafienne" name="verify_details_for_training" description="verify_details_for_training" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_H1sK_Incident" name="Incident"/>
+        <output id="_9dAm_Incident_Response" name="Incident_Response"/>
+        <output id="_RalP_Incident" name="Incident"/>
+        <task-model>{
+   "schema":{
+     "title": "Incident",
+	"type": "object",
+	"required":"Incident_Response",
+      "properties": {
+	"Incident": {
+	  "title": "Incident",
+	  "type": "object",
+	 "properties": {
+	   "Title": {
+	     "type": "string",
+	     "title": "Summary of incident"
+         },
+	"Description": {
+          "type": "string",
+	     "title": "Full details of the incident"
+         },
+	  "Type": {
+	  "title": "Incident Type",
+	  "type": "string",
+	  "enumNames": [
+	    "Quaterly Statement",
+	    "IT Returns",
+	    "Facility Request" ],
+	  "enum": [
+	      "Quaterly Statement",
+	    "IT Returns",
+	    "Facility Request" ]
+         }
+        }
+       },
+        "Incident_Response":{
+          "title": "Incident",
+	"type": "object",
+	 "properties": {
+	  "Status":{
+	    "title": "Enter the status",
+             "type": "string",
+	      "enum": [
+		"Valid",
+		"Needs further analysis",
+		"Invalid" ]
+             }
+            }
+           }
+          }
+   }
+}</task-model>
+    </cafienne:implementation>
+</humantask>
